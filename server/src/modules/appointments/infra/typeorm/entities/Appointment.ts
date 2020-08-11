@@ -1,4 +1,4 @@
-//import { uuid } from 'uuidv4';
+// import { uuid } from 'uuidv4';
 import {
   Entity,
   Column,
@@ -6,7 +6,7 @@ import {
   CreateDateColumn,
   UpdateDateColumn,
   ManyToOne,
-  JoinColumn
+  JoinColumn,
 } from 'typeorm';
 
 import User from '@modules/users/infra/typeorm/entities/User';
@@ -20,7 +20,7 @@ class Appointment {
   provider_id: string;
 
   @ManyToOne(() => User)
-  @JoinColumn({name: 'provider_id'})
+  @JoinColumn({ name: 'provider_id' })
   provider: User;
 
   @Column('timestamp with time zone')
@@ -32,11 +32,11 @@ class Appointment {
   @UpdateDateColumn()
   updated_at: Date;
 
-  /*constructor({ provider, date }: Omit<Appointment, 'id'> ) {
+  /* constructor({ provider, date }: Omit<Appointment, 'id'> ) {
     this.id = uuid();
     this.provider = provider;
     this.date = date;
-  }*/
+  } */
 }
 
 export default Appointment;

@@ -8,7 +8,7 @@ import Appointment from '../entities/Appointment';
 class AppointmentsRepository implements IAppointmentsRepository {
   private ormRepository = getRepository(Appointment);
 
-  constructor () {
+  constructor() {
     this.ormRepository = getRepository(Appointment);
   }
 
@@ -20,8 +20,11 @@ class AppointmentsRepository implements IAppointmentsRepository {
     return findAppointment;
   }
 
-  public async create({ provider_id, date }: ICreateAppointmentDTO): Promise<Appointment> {
-    const appointment = this.ormRepository.create({provider_id, date});
+  public async create({
+    provider_id,
+    date,
+  }: ICreateAppointmentDTO): Promise<Appointment> {
+    const appointment = this.ormRepository.create({ provider_id, date });
 
     await this.ormRepository.save(appointment);
 
